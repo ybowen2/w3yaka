@@ -1,0 +1,119 @@
+/**
+ * global.css
+ * Custom styling for all pages
+ * 
+ * Weyaka
+ * Wes Okuhara, Yashna Bowen, Kathy Hoang
+ */
+
+/***** GLOBAL *****/
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #ECF0F1;
+    height: 100%;
+} 
+
+hr {
+    border-top: 2px solid #334245;
+    border-radius: 10px;
+}
+
+h2, h4 {
+    font-family: bebas;
+    letter-spacing: 3px;
+}
+
+/* Defines the bebas font */
+@font-face {
+    font-family: 'bebas';
+    src: url("../fonts/bebas/bebas-neue-Regular.ttf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+.jumbotron {
+    background-color: #edeff1;
+    text-align: center;
+}
+
+.container {
+    padding-top: 60px;
+    padding-bottom: 30px;
+    max-width: 540px;
+    height: 650px;
+}
+
+
+/***** NAVBAR STYLING *****/
+/* Color to the navbar */
+.navbar-inverse, .navbar-collapse {
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    background-color: #2980B9;
+}
+
+/* Remove left padding on menu button */
+.navbar-toggle {
+    padding-left: 0;
+}
+
+/* Increase font size of menu links */
+.user-settings li a {
+    font-family: bebas;
+    letter-spacing: 3px;
+    text-align: right;
+    font-size: 25px;
+}
+
+/* When the menu is hovered */
+.navbar-inverse .navbar-toggle:hover:before, 
+.navbar-inverse .navbar-toggle:focus:before {
+    color: #003557;
+}
+
+/* When a link or home button is hovered or clicked, 
+   background color changes and font color remains white. */
+.navbar-inverse .navbar-nav > li > a:hover, 
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
+    background-color: #054066;
+    color: #fff;
+}
+
+/* MOBILE view settings */
+@media (max-width: 767px) {
+
+    /* Padding to make sure all digest links on navbar fit */
+    .navbar-nav > li > a {
+        padding: 15px 3.2%;
+    }
+}
+
+
+/* DESKTOP view settings */
+@media (min-width: 768px) {
+    
+    .navbar-brand {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    /* Increase header width so icons do not overflow */
+    .navbar-header {
+        width: 500px;
+    }
+
+    /* Maintain top and bottom padding */
+    .navbar-nav > li > a{
+        padding: 15px 30px;
+    }
+
+    /* padding so user settings do not hit the edge of the screen */
+    .navbar-right {
+        padding-right: 20px;
+    }
+}

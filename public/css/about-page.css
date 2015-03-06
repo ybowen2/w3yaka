@@ -1,0 +1,10 @@
+/* 
+ * about-page.css
+ */
+
+/* When the home icon is hovered, change the background */
+.navbar-inverse .navbar-header > a:hover,
+.navbar-inverse .navbar-header > a:focus {
+    background-color: #054066;
+    color: #fff;
+}

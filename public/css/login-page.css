@@ -1,0 +1,17 @@
+/**
+ * login-page.css
+ * Custom styling for login page
+ * 
+ * Weyaka
+ * Wes Okuhara, Yashna Bowen, Kathy Hoang
+ */
+
+/***** LOGIN PAGE *****/
+#login-body {
+    background-color: #1abc9c;
+}
+
+.login-form {
+    max-width: 320px;
+    margin: 0 auto;
+}

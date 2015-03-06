@@ -1,0 +1,29 @@
+
+#notetext
+{
+  height: 85%;
+  overflow: scroll;
+  box-shadow: 10px, 10px, 10px, 10px;
+  width:100%;
+}
+
+#noteeventplus
+{
+	border-radius: 50%;
+	width: 11%;
+	height:10%;
+	float:right;
+    
+}
+
+
+#newnotediv
+{
+  padding-top: 20%;
+}
+
+#notebuttondiv
+{
+	padding-top: 10%;
+}
+

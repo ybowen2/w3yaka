@@ -1,0 +1,38 @@
+
+{
+
+	"notecount":2,
+
+	"notes": [
+    	{
+			"title":"Milk, eggs, bread (whole wheat), elderberry jam, hot cheetos!!!",
+			"details": "Stuff to buy"
+		},
+
+		{
+			"title": " Uhh poem maybe, print pics of mom n dad",
+			"details":" mom's bday soon"
+		}
+	],
+
+
+
+	"eventcount":2,
+	"additionalEvents":1,
+	
+	"events": [
+		{
+			"title": "COGS 101B",
+			"location": "Peterson Hall",  
+			"date":  "2/27/2015",		
+			"time": "3:00 pm"
+		},
+
+		{
+			"title": "UCSDxTED",
+			"location": "Atkinson Auditorium",  
+			"date":  "1/5/2015",		
+			"time": "6:00 pm"
+		}
+	]
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Weyaka - Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Import CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/flat-ui.css" rel="stylesheet">
+	<link href="css/flaticon.css" rel="stylesheet">
+	<link href="css/simple-weather.css" rel="stylesheet">
+	
+	<link href="css/global.css" rel="stylesheet">
+	<link href="css/home-page.css" rel="stylesheet">
+   </head>
+<body>
+
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+
+			<!-- Menu button -->
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+				<span class="sr-only">Toggle navigation</span>
+			</button>
+
+			<!-- Weyaka home button -->
+			<a class="nav navbar-brand" href="/home">WEYAKA!</a>
+		</div>
+
+		<!-- Navbar contents -->
+		<div class="collapse navbar-collapse" id="menu">
+
+			<!-- User settings -->
+			<ul class="nav navbar-nav navbar-right user-settings">
+				<li><a href="/about">About</a></li>
+				<li><a href="/" id="logout-button">Logout</a></li>
+			</ul>
+
+		</div>
+	</nav>
+	
+	<div class="container">
+		
+		<!-- TOP ROW -->
+		<div class="row">
+			<!-- TRAFFIC -->
+			<div class="icon">
+				<a href="digest#traffic">
+					<div id="traffic-home"></div>
+					<img src="images/boxes/traffic-box.png" 
+					class="img-responsive">
+				</a>
+			</div>
+
+			<!-- WEATHER -->
+			<div class="icon weather-icon">
+				<a href="digest#weather">
+
+				<div id="simpleWeatherHome"></div>
+					<img src="images/boxes/weather-box.png"
+					class="img-responsive"/>
+				</a>
+			</div>
+		</div>
+
+		<!-- BOTTOM ROW -->
+		<div class="row">
+			<!-- NOTES -->
+			<div class="icon note-icon">
+				<a href="digest#notes" >
+					<div id="notecountHome"> 
+						<h2>{{noteCount}}<br>Notes</h2>
+					</div>
+
+					<img src="images/boxes/notes-box.png" 
+					class="img-responsive">
+				</a>
+			</div>
+		
+
+			<!-- SCHEDULE -->
+			<div class="icon schedule-icon">
+				<a href="digest#schedule" >
+					<div id="schedulecountHome">
+						{{#if events}}
+							<h4>{{events.0.time}}<br>
+							{{events.0.date}}</h4>
+							<h2><b>{{events.0.title}}</b></h2>
+						{{/if}}
+															
+					</div>
+					<img src="images/boxes/schedule-box.png" 
+					class="img-responsive">
+				</a>
+			</div>
+		</div>
+	</div>
+
+  	<!-- Link Javascript -->
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/weyaka.js"></script>
+
+	<!-- Weather Temperature JS -->
+	<script src="js/temp-home.js"></script>
+
+	<!-- ETA Traffic Info JS -->
+	<script type="text/javascript"
+      	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB2vaEbg0YNSzZt2WDARdb27113XOSSjo"></script>
+	<script src="js/traffic-home.js"></script>
+	</body>
+</html>

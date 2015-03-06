@@ -1,0 +1,181 @@
+/**
+ * home-page.css
+ * Custom styling for home page
+ * 
+ * Weyaka
+ * Wes Okuhara, Yashna Bowen, Kathy Hoang
+ */
+
+/******** HOME PAGE  ********/
+/* Set the height of the homepage */
+.container {
+    padding-top: 80px; /* padding for the homescreen container */
+    height: 500px;
+}
+
+/* Weyaka logo */
+.navbar-brand { 
+    padding-top: 8px;
+    font-family: bebas;
+    font-size: 45px;
+}
+
+/* When the weyaka Logo is hovered on the home page, change
+the font color */
+.navbar-inverse .navbar-header > a:hover,
+.navbar-inverse .navbar-header > a:focus {
+    color: #003557;
+}
+
+/* each individual icon */
+.icon {
+    padding: 2px;
+    width: 50%; /* fill half width of static container */
+    float: left;
+    position: relative;
+    box-shadow: 2px;
+
+}
+
+
+/* Center all text */
+#simpleWeatherHome, #notecountHome, #schedulecountHome, #traffic-home{
+    padding-left: 12%;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    float: left;
+}
+.img-responsive
+{
+    box-shadow: 1px 1px 1px 1px #dcdcdc;
+    border-radius: 2%;
+}
+/* Color of the weather icon */
+i {
+    color: #fff;
+}
+
+/* Schedule top padding */
+#schedulecountHome {
+    padding-top: 4%;
+}
+
+#notecountHome {
+    padding-top: 10%;
+}
+
+/* traffic top padding */
+#traffic-home {
+    padding-top: 12%;
+}
+
+/* Padding for the top of the ban circle */
+#simpleWeatherHome .glyphicon-ban-circle,
+#traffic-home .glyphicon-ban-circle  {
+    padding-top: 25%;
+}
+
+/* MOBILE VIEW FONT SIZES */
+@media (max-width: 700px) {
+
+    /* ETA */
+    #traffic-home h2 {
+        margin: 0;
+        font-size: 11vw;
+    } 
+
+    /* Event item */
+    #schedulecountHome h2 {
+        margin: 0;
+        font-size: 8vw;
+    }
+
+    /* "To UCSD", "Time" */
+    #traffic-home h4, #schedulecountHome h4 {
+        font-size: 5.5vw;
+    }
+
+    /* Temperature */
+    #simpleWeatherHome h2 {
+        margin-top: 20px;
+        font-size: 17vw;
+    }
+
+    /* weather icon */
+    i {
+        font-size: 18vw;
+    }
+
+    /* Note Details */
+    #notecountHome h2 {
+        font-size: 12vw;
+    }
+
+    /* Styling for the glyphicon ban-icon */
+    #simpleWeatherHome .glyphicon-ban-circle,
+    #traffic-home .glyphicon-ban-circle {
+        font-size: 14vw;
+    }
+
+    /* No location paragraph */
+    #simpleWeatherHome p,
+    #traffic-home p {
+        font-size: 4vw;
+    }
+}
+
+/* DESKTOP VIEW FONT SIZES */
+@media (min-width: 701px) {
+
+    /* Temperature */
+    #simpleWeatherHome h2 {
+        font-size: 110px;
+    }
+
+    /* Weather icon */
+    i {
+        font-size: 110px;
+    }
+
+    /* ETA */
+    #traffic-home h2 {
+        margin: 0;
+        font-size: 70px;
+    }
+
+    /* "To UCSD" */
+    #traffic-home h4 {
+        font-size: 40px;
+    }
+
+    /* Event item */
+    #schedulecountHome h2 {
+        margin: 0;
+        font-size: 50px;
+    }
+
+    /* Event date and time */
+    #schedulecountHome h4 {
+        font-size: 35px;
+    }
+
+    /* Note details */
+    #notecountHome h2 {
+        font-size: 80px;
+    }
+
+    /* No location ban circle */
+    #simpleWeatherHome .glyphicon-ban-circle,
+    #traffic-home .glyphicon-ban-circle {
+        font-size: 85px;
+    }
+
+    /* No location paragraph */
+    #simpleWeatherHome p,
+    #traffic-home p  {
+        font-size: 25px;
+    }
+}

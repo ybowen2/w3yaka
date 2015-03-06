@@ -1,0 +1,43 @@
+[
+	{
+		"username": "Guest",
+		"notes": [
+			{
+				"title": "This is an example of a note!",
+				"details": "Simply click the add button to create a new note or click the delete button to remove this one"
+			}
+		],
+		"noteCount":1,
+
+		"events": [
+			{
+				"title": "Use Weyaka",
+				"location": "Home",  
+				"date":  "3/5/2015",		
+				"time": "8:30 pm"
+			}
+		],
+		"eventCount":1
+	},
+
+	{
+		"username": "Wes",
+		"notes": [
+			{
+				"title": "Hello",
+				"details": "Hi Wes!"
+			}
+		],
+		"noteCount":1,
+
+		"events": [
+			{
+				"title": "SASE OM",
+				"location": "Center Hall",  
+				"date":  "3/8/2015",		
+				"time": "5:00 pm"
+			}
+		],
+		"eventCount":1
+	}
+]

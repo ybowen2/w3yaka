@@ -1,0 +1,93 @@
+/**
+ * digest-page.css
+ * Custom styling for digest page
+ * 
+ * Weyaka
+ * Wes Okuhara, Yashna Bowen, Kathy Hoang
+ */
+
+/* Increase font size for section headers */
+h4 {
+    font-size: 37px;
+}
+
+/* Font size for ETA info and note titles */
+h5 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+/* When the home icon is hovered, change the background */
+.navbar-inverse .navbar-header > a:hover,
+.navbar-inverse .navbar-header > a:focus {
+    background-color: #054066;
+    color: #fff;
+}
+
+/***** TRAFFIC SECTION *****/
+#googleMap {
+    width: 90%; /* fill 85% width of static container for scrolling */
+    height: 380px; 
+    border-radius: 10px;
+}
+
+#address-input, #geocode-btn {
+    max-width: 65%;
+    float: left;
+    padding-bottom: 10px;
+    padding-right: 5px;
+}
+
+#map-refresh-btn button {
+    float: right;
+}
+
+/* Paragraphs for weather and map api objects
+ * to be used when geolocation is disabled */
+.noLocationError {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    font-size: 25px;
+    background: rgba(255,255,255,0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+/****** NOTES & SCHEDULE SECTION *****/
+#notes-list, #events-list {
+    padding: 25px;
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+    background: rgba(255,255,255,0.6);
+    border-radius: 10px;
+}
+
+#notes-list {
+    height: 80%;
+}
+
+#events-list {
+    height: 60%;
+}
+
+#details-field {
+    height: 100px;
+}
+
+#add-note-btn, #add-event-btn {
+    float: right;  
+}
+
+#googleLink {
+    margin-top: 15px;
+}
+
+.note-delete, .event-delete {
+    float: right;
+    margin-left: 13px;
+}

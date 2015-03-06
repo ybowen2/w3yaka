@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Weyaka - Digest</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Import CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/flat-ui.css" rel="stylesheet">
+	<link href="css/flaticon.css" rel="stylesheet">
+	<link href="css/simple-weather.css" rel="stylesheet">
+
+	<link href="css/global.css" rel="stylesheet">
+	<link href="css/digest-page.css" rel="stylesheet">
+	
+</head>
+
+<body>
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+				<span class="sr-only">Toggle navigation</span>
+			</button>
+
+			<!-- Weyaka home button -->
+			<a class="navbar-brand" href="/home" onclick="return_to_home()">
+				<span class="flaticon-house28"></span>
+			</a>
+
+			<div class="digest-link-icons">
+				<ul class="nav navbar-nav">
+					<li>
+						<a class="navbar-brand digest-link" href="#traffic" ><span class="flaticon-auto2"></span></a>
+					</li>
+					<li>
+						<a class="navbar-brand digest-link" href="#weather" ><span class="flaticon-sunny18"></span></a>
+					</li>
+					<li>
+						<a class="navbar-brand digest-link" href="#notes"><span class="flaticon-document162"></span></a>
+					</li>
+					<li>
+						<a class="navbar-brand digest-link" href="#schedule" ><span class="flaticon-calendar159"></span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Navbar contents -->
+		<div class="collapse navbar-collapse" id="menu">
+			<!-- User settings -->
+			<ul class="nav navbar-nav navbar-right user-settings">
+				<li><a href="/about">About</a></li>
+				<li><a href="/" class="logout-button">Logout</a></li>
+			</ul>
+
+		</div>
+	</nav>
+
+	<!-- TRAFFIC SECTION -->
+	<div class="container" id="traffic" >
+		<h4>Traffic</h4>
+		<hr>
+
+		<!-- Destination input -->
+		<div id="address-input"></div>
+
+		<!-- Geocode button -->
+		<div id="geocode-btn"></div>
+
+		<!-- refresh button -->
+		<div id="refresh-map-btn"></div>
+		<br>
+
+		<!-- ETA Information -->
+		<h5 id="route-eta"></h5>
+
+		<!-- Google Map object -->
+		<div id="googleMap"></div>
+	</div>
+
+	<!-- WEATHER SECTION -->
+	<div class="container" id="weather">
+		<h4>Weather</h4>
+		<hr>
+
+		<div id="simpleWeather"></div>
+	</div>
+
+
+	<!-- NOTES SECTION -->
+	<div class="container" id="notes">
+		<!--Notes header and add button (toggles modal) -->
+		<h4>Notes ({{noteCount}})
+			<button type="button" id="add-note-btn" class="btn btn-inverse" data-toggle="modal" data-target="#noteModal">
+				<span class="fui-plus"></span>
+			</button>
+		</h4>
+		<hr>
+
+		<!-- Note Modal -->
+		<div class="modal fade" id="noteModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- popup header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span class="fui-cross"></span>
+						</button>
+						<h4 class="modal-title">Add Note</h4>
+					</div>
+
+					<!-- popup body (form) -->
+					<div class="modal-body">
+						<form id="add-note-form" action="/addNote" method="POST">
+				            <!-- Title -->
+				            <div class="form-group">
+				                <input type="text" id="title-field" name="title" class="form-control" placeholder="Title" required>
+				            </div>
+
+				            <!-- Details -->
+				            <div class="form-group">
+				                <textarea id="details-field" name="details" class="form-control" placeholder="Add details here"></textarea>
+				            </div>
+			        	</form>
+					</div>
+
+					<!-- popup footer -->
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-inverse" form="add-note-form">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- List of notes -->
+		<div id="notes-list">
+			{{#each notes}}
+			<div class="note" id="note{{id}}">
+				<!-- Delete note button -->
+				<button class="note-delete btn btn-inverse">
+					<span class="fui-cross"></span>
+				</button>
+				<h5>{{title}}</h5>
+				<p>{{details}}</p>
+				<hr>
+			</div>
+			{{/each}}
+		</div>	
+	</div>
+
+	<!-- SCHEDULE SECTION -->
+	<div class="container" id="schedule">
+		<h4>Schedule ({{eventCount}})
+			<button type="button" id="add-event-btn" class="btn btn-inverse" data-toggle="modal" data-target="#eventModal">
+				<span class="fui-plus"></span>
+			</button>
+		</h4>
+		<hr>
+		
+		<!-- Event Modal -->
+		<div class="modal fade" id="eventModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- popup header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span class="fui-cross"></span>
+						</button>
+						<h4 class="modal-title">Add Event</h4>
+					</div>
+
+					<!-- popup body (form) -->
+					<div class="modal-body">
+						<form id="add-event-form" action="/addEvent" method="POST">
+				            <!-- Title -->
+				            <div class="form-group">
+				                <input type="text" id="title-field" name="title" class="form-control" placeholder="Title" maxlength="22" required>
+				            </div>
+
+				            <!-- Location -->
+				            <div class="form-group">
+				                <input type="text" id="location-field" class="form-control" name="location" placeholder="Location">
+				            </div>
+
+				            <!-- Date -->
+				            <div class="form-group">
+				                <input type="date" id="date-field" class="form-control" name="date">
+				            </div>
+
+				            <!-- Time -->
+				            <div class="form-group">
+				                <input type="time" id="time-field" class="form-control" name="time">
+				            </div>
+			        	</form>
+					</div>
+
+					<!-- popup footer -->
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-inverse" form="add-event-form">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="events-list">
+			{{#each events}}
+			<div class="event" id="event{{id}}">
+				<!-- Delete event button -->
+				<button class="event-delete btn btn-inverse">
+					<span class="fui-cross"></span>
+				</button>
+				<h5>{{title}}</h5>
+				<p>
+				{{date}} @ {{time}}<br>
+			   	Location : {{location}}
+				</p>
+			   	<hr>
+			</div>
+			{{/each}}
+		</div>
+		
+		<!-- Link to Google Calendar -->
+		<button class="btn btn-inverse" id="googleLink" >Go to Google Calendar</button>
+	</div>
+
+  	<!-- Link Javascript -->
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/jquery.scrollto.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/weyaka.js"></script>
+	<script src="js/googleCalendar.js"></script>
+
+	<!-- Google Maps API Javascript imports -->
+	<script type="text/javascript"
+      	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB2vaEbg0YNSzZt2WDARdb27113XOSSjo"></script>
+    <script src="js/traffic.js"></script>
+
+    <!-- Simple Weather JS imports -->
+    <script src="js/jquery.simpleWeather.js"></script>
+    <script src="js/jquery.moment.js"></script>
+
+    <!-- Google Sign in -->
+    <script type="text/javascript" src="https:apis.google.com/js/client.js?onload=init"></script>
+	<script type="text/javascript" src="https://addthisevent.com/libs/1.5.8/ate.min.js"></script>
+</body>
+</html>
