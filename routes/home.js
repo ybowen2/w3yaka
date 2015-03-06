@@ -19,12 +19,7 @@ exports.view = function(req, res) {
 	function displayUser (err, user) {
 		console.log("########### Loading home page...");
 
-		var random_num = Math.random();
-		if (random_num > 0.5) {
 			res.render('home', user);
-		}
-		else {
-			res.render('home_alternate', user);
-		}
+		
 	}
 };
